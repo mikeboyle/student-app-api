@@ -8,8 +8,6 @@ const getAllStudentsV2 = async () => {
 };
 
 const getAllStudentsWithGradesV2 = async () => {
-  // create our results array
-  const results = [];
   // get all students
   const students = await getAllStudentsV2();
   // for each student...
@@ -20,12 +18,10 @@ const getAllStudentsWithGradesV2 = async () => {
     const grades = await getGradesByStudentIdV2(id);
     // copy the student and then add its grades (no mutating) to the copy
     student.grades = grades;
-    // push the copy into results
-    results.push(student);
   }
 
-  // return results
-  return results;
+  // return students
+  return students;
 };
 
 const getStudentByIdV2 = async (id) => {
